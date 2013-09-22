@@ -1,0 +1,21 @@
+Randomness in testing
+- normal testing: try edge cases
+- it's easy to find edge cases when you have a good geometric picture
+- "fuzz testing" finds more difficult edge cases (higher-dimensional picture)
+  * fuzz testing kata example
+  * note: will generally be more simple-minded
+  * NOT supported by rspec in any way
+- Another use for randomness: test order
+  * test order kata example
+  * sources of test interdependence: databases, global variables, files, external APIs
+  * rspec --order rand (not the default)
+- What to do when a test randomly fails?
+  * random seeds
+  * rspec --seed 1234
+  * srand RSpec.configuration.seed (not controlled by --seed!)
+  * putting it together - re-use the seed 
+  * putting it together code
+- Other examples of randomness in testing
+  * code mutation
+  * unavoidable randomness (e.g. network APIs)
+  * testing random code
