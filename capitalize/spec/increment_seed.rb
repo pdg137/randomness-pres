@@ -4,7 +4,6 @@ srand seed+1 # eliminate interdependence between rspec seed and srand values
 
 RSpec.configuration.after(:suite) do
   examples = RSpec.world.filtered_examples.values.flatten
-  if examples.none?(&:exception)
-    File.write(".rspec-seed","#{seed+1}\n")
-  end
+  break if examples.any?(&:exception)
+  File.write(".rspec-seed","#{seed+1}\n")
 end
