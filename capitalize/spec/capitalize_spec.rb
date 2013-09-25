@@ -2,18 +2,12 @@ require 'spec_helper'
 
 describe Capitalize do
   describe "capitalize_each_line" do
-    context "given 'abcd'" do
-      let(:s) { "abcd" }
-      it "should return 'Abcd'" do
-        Capitalize.capitalize_each_line(s).should == "Abcd"
-      end
+    specify "given 'abcd' should return 'Abcd'" do
+      Capitalize.capitalize_each_line('abcd').should == 'Abcd'
     end
 
-    context "given 'blah\nblah\nBLAH'" do
-      let(:s) { "blah\nblah\nBLAH" }
-      it "should return 'Blah\nBlah\nBLAH'" do
-        Capitalize.capitalize_each_line(s).should == "Blah\nBlah\nBLAH"
-      end
+    specify "given 'blah\nblah\nBLAH' should return 'Blah\nBlah\nBLAH'" do
+      Capitalize.capitalize_each_line("blah\nblah\nBLAH").should == "Blah\nBlah\nBLAH"
     end
   end
 
