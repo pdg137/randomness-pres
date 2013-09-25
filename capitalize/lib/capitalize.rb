@@ -3,8 +3,8 @@ class Capitalize
   # Given a string, capitalize the first letter of each line.
   def self.capitalize_each_line(line)
     s = line.dup
-    s.split("\n",-1).map { |line|
-      line[0] = line[0].upcase if !line.empty?
+    s.split("\n").map { |line|
+      line[0] = line[0].upcase
       line
     }.join("\n")
   end
