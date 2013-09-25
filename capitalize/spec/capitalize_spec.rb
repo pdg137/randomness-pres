@@ -9,9 +9,20 @@ describe Capitalize do
     specify "given 'blah\nblah\nBLAH' should return 'Blah\nBlah\nBLAH'" do
       Capitalize.capitalize_each_line("blah\nblah\nBLAH").should == "Blah\nBlah\nBLAH"
     end
+
+    20.times do
+      s = 10.times.map { rand(128).chr }.join # random 10-character ASCII string
+      specify "given #{s.inspect}, returns a result that downcases to the same value" do
+        Capitalize.capitalize_each_line(s).downcase.should == s.downcase
+      end
+    end
   end
 
   describe "capitalize_file" do
+    before(:all) do
+      File.unlink("file.txt") rescue nil
+    end
+
     context "given a file containing 'abcd'" do
       before do
         File.write("file.txt", "abcd")
