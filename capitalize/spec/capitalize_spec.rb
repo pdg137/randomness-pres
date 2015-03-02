@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe Capitalize do
   describe "capitalize_each_line" do
-    specify "given 'abcd' should return 'Abcd'" do
-      Capitalize.capitalize_each_line('abcd').should == 'Abcd'
+    specify "given 'abcd' returns 'Abcd'" do
+      expect(Capitalize.capitalize_each_line('abcd')).to eq 'Abcd'
     end
 
     specify "given 'blah\nblah\nBLAH' should return 'Blah\nBlah\nBLAH'" do
-      Capitalize.capitalize_each_line("blah\nblah\nBLAH").should == "Blah\nBlah\nBLAH"
+      expect(Capitalize.capitalize_each_line("blah\nblah\nBLAH")).to eq "Blah\nBlah\nBLAH"
     end
   end
 
@@ -22,7 +22,7 @@ describe Capitalize do
       end
 
       it "should return 'Abcd'" do
-        Capitalize.capitalize_file("file.txt").should == "Abcd"
+        expect(Capitalize.capitalize_file("file.txt")).to eq "Abcd"
       end
     end
 
